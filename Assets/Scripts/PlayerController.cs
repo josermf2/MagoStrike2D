@@ -5,27 +5,30 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    public Animator animator;
     public float walkSpeed = 5f;
     Vector2 moveInput;
 
+    [SerializeField]
     private bool _isMoving = false;
     public bool IsMoving { get
         {
             return _isMoving;
         } 
-        private set
+        set
             {
                 _isMoving = value;
                 animator.SetBool("isMoving", value);
             }
     }
 
-    private bool isRunning = false;
-    public bool _isRunning { get
+    [SerializeField]
+    private bool _isRunning = false;
+    public bool IsRunning { get
         {
             return _isRunning;
         } 
-        private set
+        set
             {
                 _isRunning = value;
                 animator.SetBool("isRunning", value);
@@ -33,7 +36,7 @@ public class PlayerController : MonoBehaviour
     }
 
     Rigidbody2D rb;
-    Animator animator;
+   
 
     private void Awake()
     {
@@ -67,10 +70,10 @@ public class PlayerController : MonoBehaviour
     {
         if (context.started)
         {
-            isRunning = true;
+            IsRunning = true;
         } else if(context.canceled)
         {
-            isRunning = false;
+            IsRunning = false;
         }
     }
 }
