@@ -7,7 +7,26 @@ public class PlayerController : MonoBehaviour
 {
     public Animator animator;
     public float walkSpeed = 5f;
+    public float runSpeed = 8f;
     Vector2 moveInput;
+
+    public float CurrentMoveSpeed { get
+        {
+            if(IsMoving)
+            {
+                if(IsRunning)
+                {
+                    return runSpeed;
+                }else
+                {
+                    return walkSpeed;
+                }
+            } else
+            {
+                return 0;
+            }
+        }
+        }
 
     [SerializeField]
     private bool _isMoving = false;
@@ -35,6 +54,18 @@ public class PlayerController : MonoBehaviour
             }
     }
 
+    public bool _isFacingRight = true;
+
+    public bool isFacingRight { get { return _isFacingRight; } private set {
+            if (_isFacingRight != value)
+            {
+                transform.localScale *= new Vector2(-1, 1);
+            }
+            _isFacingRight = value;
+    }
+    
+    }
+
     Rigidbody2D rb;
    
 
@@ -56,7 +87,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(moveInput.x * walkSpeed, rb.velocity.y);
+        rb.velocity = new Vector2(moveInput.x * CurrentMoveSpeed, rb.velocity.y);
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -64,6 +95,20 @@ public class PlayerController : MonoBehaviour
         moveInput = context.ReadValue<Vector2>();
 
         IsMoving = moveInput != Vector2.zero;
+
+        setFacingDirection(moveInput);
+    }
+
+    private void setFacingDirection(Vector2 moveInput)
+    {
+        if(moveInput.x > 0 && !isFacingRight)
+        {
+            isFacingRight = true;
+        }
+        else if (moveInput.x < 0 && isFacingRight)
+        {
+            isFacingRight = false;
+        }
     }
 
     public void OnRun(InputAction.CallbackContext context)
