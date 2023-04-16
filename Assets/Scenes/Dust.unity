@@ -1250,6 +1250,7 @@ MonoBehaviour:
   Bullet: {fileID: 6045191161375106362, guid: cde05f6fe121ddf4782dc658db877405, type: 3}
   BulletSpeed: 800
   ShootPoint: {fileID: 1789450513}
+  shootDelay: 1
 --- !u!114 &816930983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1268,6 +1269,19 @@ MonoBehaviour:
   healthText: {fileID: 1184450584}
   animator: {fileID: 816930970}
   _isDead: 0
+--- !u!114 &816930987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816930961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8185cc99e4bf7c549baed7cfebf08e0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGrounded: 0
 --- !u!1 &956050650
 GameObject:
   m_ObjectHideFlags: 0
@@ -1558,7 +1572,7 @@ GameObject:
   - component: {fileID: 1111300208}
   m_Layer: 0
   m_Name: Tilemap
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
