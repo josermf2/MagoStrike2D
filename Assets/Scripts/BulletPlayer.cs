@@ -34,7 +34,7 @@ public class BulletPlayer : MonoBehaviour
         if(other.gameObject.CompareTag("Enemy"))
         {
             Destroy(gameObject);
-            Destroy(enemy);
+            Destroy(other.gameObject);
 
         }
 
