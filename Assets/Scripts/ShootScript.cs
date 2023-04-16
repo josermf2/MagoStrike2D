@@ -9,6 +9,12 @@ public class ShootScript : MonoBehaviour
 
     Vector2 direction;
 
+    public GameObject Bullet;
+
+    public float BulletSpeed;
+
+    public Transform ShootPoint;
+
     // Update is called once per frame
     void Update()
     {
@@ -21,6 +27,11 @@ public class ShootScript : MonoBehaviour
         }
 
         FaceMouse();
+
+        if(Input.GetMouseButtonDown(0))
+        {
+            shoot();
+        }
     }
 
     void FaceMouse()
@@ -31,5 +42,11 @@ public class ShootScript : MonoBehaviour
         {
             Gun.transform.right = direction;
         }
+    }
+
+    void shoot()
+    {
+        GameObject BulletIns = Instantiate(Bullet, ShootPoint.position, ShootPoint.rotation);
+        BulletIns.GetComponent<Rigidbody2D>().AddForce(BulletIns.transform.right * BulletSpeed);
     }
 }
