@@ -37,6 +37,11 @@ public class BulletPlayer : MonoBehaviour
             Destroy(enemy);
 
         }
+
+        if(other.gameObject.CompareTag("Ground"))
+        {
+            Destroy(gameObject);
+        }
     }
 
 
