@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public float jumpInpulse = 5f;
     Vector2 moveInput;
     TouchingDirections touchingDirections;
+    PlayerHealth playerHealth;
 
     public float CurrentMoveSpeed { get
         {
@@ -76,15 +77,20 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         touchingDirections= GetComponent<TouchingDirections>();
+        playerHealth = GetComponent<PlayerHealth>();
     }
 
     private void FixedUpdate()
     {
+        if(playerHealth.IsDead) return;
+
         rb.velocity = new Vector2(moveInput.x * CurrentMoveSpeed, rb.velocity.y);
     }
 
     public void OnMove(InputAction.CallbackContext context)
     {
+        if(playerHealth.IsDead) return;
+
         moveInput = context.ReadValue<Vector2>();
 
         IsMoving = moveInput != Vector2.zero;
@@ -106,6 +112,8 @@ public class PlayerController : MonoBehaviour
 
     public void OnRun(InputAction.CallbackContext context)
     {
+        if(playerHealth.IsDead) return;
+
         if (context.started)
         {
             IsRunning = true;
@@ -117,6 +125,8 @@ public class PlayerController : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
     {
+        if(playerHealth.IsDead) return;
+
         if (context.started && touchingDirections.IsGrounded)
         {
             animator.SetTrigger("jump");
