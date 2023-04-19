@@ -11,6 +11,7 @@ public class PlayerHealth : MonoBehaviour
     public Image healthBar;
     public TextMeshProUGUI healthText;
     public Animator animator;
+    public GameObject restartMenuUI;
 
     [SerializeField]
     private bool _isDead = false;
@@ -42,6 +43,7 @@ public class PlayerHealth : MonoBehaviour
         {
             IsDead = true;
             Time.timeScale = 0f;
+            restartMenuUI.SetActive(true);
         }
     }
 }

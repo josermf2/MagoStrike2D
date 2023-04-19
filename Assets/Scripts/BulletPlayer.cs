@@ -24,7 +24,7 @@ public class BulletPlayer : MonoBehaviour
 
         if(timer > 10)
         {
-            Destroy(gameObject);
+           Destroy(gameObject);
         }
         
     }
