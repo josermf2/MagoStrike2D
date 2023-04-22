@@ -7,7 +7,9 @@ public class BulletPlayer : MonoBehaviour
     private GameObject enemy;
     private Rigidbody2D rb;
     public float force;
+    public GameObject cashDrop;
     private float timer;
+   
 
     // Start is called before the first frame update
     void Start()
@@ -35,12 +37,20 @@ public class BulletPlayer : MonoBehaviour
         {
             Destroy(gameObject);
             Destroy(other.gameObject);
+            Instantiate(cashDrop, transform.position,Quaternion.identity);
 
         }
 
         if(other.gameObject.CompareTag("Ground"))
         {
             Destroy(gameObject);
+        }
+
+        if(other.gameObject.CompareTag("Interactive"))
+        {
+            Destroy(gameObject);
+            Destroy(other.gameObject);
+            Instantiate(cashDrop, transform.position,Quaternion.identity);
         }
     }
 
