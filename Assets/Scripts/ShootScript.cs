@@ -2,50 +2,63 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class Weapon {
+    public string name;
+    public Transform gun;
+    public Transform shootPoint;
+    public float bulletSpeed;
+    public float shootDelay;
+}
+
+
 public class ShootScript : MonoBehaviour
 {
-    public Transform Gun;
-    public Transform Player;
+    public List<Weapon> weapons;
+    public int currentWeaponIndex = 0;
 
     Vector2 direction;
 
     public GameObject Bullet;
-    public float BulletSpeed;
-    public Transform ShootPoint;
 
     private TouchingDirections groundCheck;
     private bool canShoot = true;
 
-    [SerializeField]
-    private float shootDelay = 0.2f;
 
     private void Start()
     {
-        groundCheck = Player.GetComponent<TouchingDirections>();
+        groundCheck = GetComponent<TouchingDirections>();
+        SetCurrentWeaponActive();
     }
 
     private void Update()
     {
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        if (Player.localScale.x < 0)
+        if (transform.localScale.x < 0)
         {
-            direction = (Vector2)Gun.position - mousePos;
+            direction = (Vector2)GetCurrentWeapon().gun.position - mousePos;
         }
         else
         {
-            direction = mousePos - (Vector2)Gun.position;
+            direction = mousePos - (Vector2)GetCurrentWeapon().gun.position;
         }
 
         FaceMouse();
 
         if (groundCheck.IsGrounded)
         {
-            Gun.gameObject.SetActive(true);
+            GetCurrentWeapon().gun.gameObject.SetActive(true);
         }
         else
         {
-            Gun.gameObject.SetActive(false);
+            GetCurrentWeapon().gun.gameObject.SetActive(false);
+        }
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            currentWeaponIndex = (currentWeaponIndex + 1) % weapons.Count;
+            SetCurrentWeaponActive();
         }
 
         if (Input.GetMouseButtonDown(0) && canShoot)
@@ -57,36 +70,54 @@ public class ShootScript : MonoBehaviour
     private void FaceMouse()
     {
         // Check if the player is facing in the same direction as the mouse
-        if ((Player.localRotation.eulerAngles.y == 0 && direction.x > 0) ||
-            (Player.localRotation.eulerAngles.y == 180 && direction.x < 0))
+        if ((transform.localRotation.eulerAngles.y == 0 && direction.x > 0) ||
+            (transform.localRotation.eulerAngles.y == 180 && direction.x < 0))
         {
-            Gun.transform.right = direction;
+            GetCurrentWeapon().gun.transform.right = direction;
         }
     }
 
     private IEnumerator Shoot()
     {
-        if (!Gun.gameObject.activeSelf) {
+        if (!GetCurrentWeapon().gun.gameObject.activeSelf) {
             yield break; // Player cannot shoot when not on the ground
         }
         canShoot = false;
 
-        GameObject bulletIns = Instantiate(Bullet, ShootPoint.position, ShootPoint.rotation);
+        GameObject bulletIns = Instantiate(Bullet, GetCurrentWeapon().shootPoint.position, GetCurrentWeapon().shootPoint.rotation);
 
         // Check if the player is facing left
-        if (Player.localScale.x < 0)
+        if (transform.localScale.x < 0)
         {
-            bulletIns.transform.right = -ShootPoint.right; // Flip bullet direction
+            bulletIns.transform.right = -GetCurrentWeapon().shootPoint.right; // Flip bullet direction
         }
         else
         {
-            bulletIns.transform.right = ShootPoint.right;
+            bulletIns.transform.right = GetCurrentWeapon().shootPoint.right;
         }
 
-        bulletIns.GetComponent<Rigidbody2D>().AddForce(bulletIns.transform.right * BulletSpeed);
+        bulletIns.GetComponent<Rigidbody2D>().AddForce(bulletIns.transform.right * GetCurrentWeapon().bulletSpeed);
 
-        yield return new WaitForSeconds(shootDelay);
+        yield return new WaitForSeconds(GetCurrentWeapon().shootDelay);
 
         canShoot = true;
+    }
+
+    private void SetCurrentWeaponActive()
+    {
+        for (int i = 0; i < weapons.Count; i++)
+        {
+            weapons[i].gun.gameObject.SetActive(i == currentWeaponIndex);
+        }
+    }
+
+    private void SetCurrentWeaponInactive()
+    {
+        GetCurrentWeapon().gun.gameObject.SetActive(false);
+    }
+
+    private Weapon GetCurrentWeapon()
+    {
+        return weapons[currentWeaponIndex];
     }
 }
