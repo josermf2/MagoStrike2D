@@ -3947,16 +3947,20 @@ MonoBehaviour:
   - name: glock
     gun: {fileID: 1499877522}
     shootPoint: {fileID: 1789450513}
+    bulletSpeed: 600
+    shootDelay: 2
   - name: ak
     gun: {fileID: 355528003}
     shootPoint: {fileID: 131386675}
+    bulletSpeed: 800
+    shootDelay: 1.5
   - name: mac10
     gun: {fileID: 283425654}
     shootPoint: {fileID: 285047034}
+    bulletSpeed: 700
+    shootDelay: 0.5
   currentWeaponIndex: 0
   Bullet: {fileID: 6045191161375106362, guid: cde05f6fe121ddf4782dc658db877405, type: 3}
-  BulletSpeed: 800
-  shootDelay: 1
 --- !u!114 &816930983
 MonoBehaviour:
   m_ObjectHideFlags: 0
