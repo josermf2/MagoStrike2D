@@ -13,83 +13,81 @@ public class PlayerController : MonoBehaviour
     Vector2 moveInput;
     TouchingDirections touchingDirections;
     PlayerHealth playerHealth;
+    Camera mainCamera;
 
-    public float CurrentMoveSpeed { get
-        {
-            if(IsMoving && !touchingDirections.IsOnWall)
-            {
-                if(IsRunning)
-                {
+    public float CurrentMoveSpeed {
+        get {
+            if (IsMoving && !touchingDirections.IsOnWall) {
+                if (IsRunning) {
                     return runSpeed;
-                }else
-                {
+                } else {
                     return walkSpeed;
                 }
-            } else
-            {
+            } else {
                 return 0;
             }
         }
-        }
+    }
 
     [SerializeField]
     private bool _isMoving = false;
-    public bool IsMoving { get
-        {
+    public bool IsMoving {
+        get {
             return _isMoving;
-        } 
-        set
-            {
-                _isMoving = value;
-                animator.SetBool("isMoving", value);
-            }
+        } set {
+            _isMoving = value;
+            animator.SetBool("isMoving", value);
+        }
     }
 
     [SerializeField]
     private bool _isRunning = false;
-    public bool IsRunning { get
-        {
+    public bool IsRunning {
+        get {
             return _isRunning;
-        } 
-        set
-            {
-                _isRunning = value;
-                animator.SetBool("isRunning", value);
-            }
+        } set {
+            _isRunning = value;
+            animator.SetBool("isRunning", value);
+        }
     }
 
     public bool _isFacingRight = true;
 
-    public bool isFacingRight { get { return _isFacingRight; } private set {
-            if (_isFacingRight != value)
-            {
+    public bool isFacingRight {
+        get { return _isFacingRight; } 
+        private set {
+            if (_isFacingRight != value) {
                 transform.localScale *= new Vector2(-1, 1);
             }
             _isFacingRight = value;
-    }
-    
+        }
     }
 
     Rigidbody2D rb;
    
 
-    private void Awake()
-    {
+    private void Awake() {
         rb = GetComponent<Rigidbody2D>();
-        touchingDirections= GetComponent<TouchingDirections>();
+        touchingDirections = GetComponent<TouchingDirections>();
         playerHealth = GetComponent<PlayerHealth>();
+        mainCamera = Camera.main;
     }
 
-    private void FixedUpdate()
-    {
-        if(playerHealth.IsDead) return;
+    private void FixedUpdate() {
+        if (playerHealth.IsDead) return;
 
         rb.velocity = new Vector2(moveInput.x * CurrentMoveSpeed, rb.velocity.y);
+
+        Vector3 mousePos = mainCamera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        if (mousePos.x < transform.position.x && isFacingRight) {
+            isFacingRight = false;
+        } else if (mousePos.x >= transform.position.x && !isFacingRight) {
+            isFacingRight = true;
+        }
     }
 
-    public void OnMove(InputAction.CallbackContext context)
-    {
-        if(playerHealth.IsDead) return;
+    public void OnMove(InputAction.CallbackContext context) {
+        if (playerHealth.IsDead) return;
 
         moveInput = context.ReadValue<Vector2>();
 
@@ -98,37 +96,28 @@ public class PlayerController : MonoBehaviour
         setFacingDirection(moveInput);
     }
 
-    private void setFacingDirection(Vector2 moveInput)
-    {
-        if(moveInput.x > 0 && !isFacingRight)
-        {
+    private void setFacingDirection(Vector2 moveInput) {
+        if (moveInput.x > 0 && !isFacingRight) {
             isFacingRight = true;
-        }
-        else if (moveInput.x < 0 && isFacingRight)
-        {
+        } else if (moveInput.x < 0 && isFacingRight) {
             isFacingRight = false;
         }
     }
 
-    public void OnRun(InputAction.CallbackContext context)
-    {
-        if(playerHealth.IsDead) return;
+    public void OnRun(InputAction.CallbackContext context) {
+        if (playerHealth.IsDead) return;
 
-        if (context.started)
-        {
+        if (context.started) {
             IsRunning = true;
-        } else if(context.canceled)
-        {
+        } else if (context.canceled) {
             IsRunning = false;
         }
     }
 
-    public void OnJump(InputAction.CallbackContext context)
-    {
-        if(playerHealth.IsDead) return;
+    public void OnJump(InputAction.CallbackContext context) {
+        if (playerHealth.IsDead) return;
 
-        if (context.started && touchingDirections.IsGrounded)
-        {
+        if (context.started && touchingDirections.IsGrounded) {
             animator.SetTrigger("jump");
             rb.velocity = new Vector2(rb.velocity.x, jumpInpulse);
         } 

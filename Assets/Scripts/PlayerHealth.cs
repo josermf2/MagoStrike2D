@@ -12,6 +12,8 @@ public class PlayerHealth : MonoBehaviour
     public TextMeshProUGUI healthText;
     public Animator animator;
     public GameObject restartMenuUI;
+    public int pickupQuantity;
+    public TextMeshProUGUI cashText;
 
     [SerializeField]
     private bool _isDead = false;
@@ -39,11 +41,22 @@ public class PlayerHealth : MonoBehaviour
         healthBar.fillAmount = Mathf.Clamp(health / maxHealth, 0, 1);
         healthText.text = health.ToString();
 
+        cashText.text = pickupQuantity.ToString();
+
         if(health <= 0)
         {
             IsDead = true;
             Time.timeScale = 0f;
             restartMenuUI.SetActive(true);
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject.CompareTag("Money"))
+        {
+            pickupQuantity += 10;
+            Destroy(other.gameObject);
         }
     }
 }
