@@ -6,17 +6,19 @@ public class BulletPlayer : MonoBehaviour
 {
     private GameObject enemy;
     private Rigidbody2D rb;
-    public float force;
+    private float force;
     public GameObject cashDrop;
     private float timer;
-   
+    private ShootScript shootScript;
+    private float bulletTime;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         enemy = GameObject.FindGameObjectWithTag("Enemy");
-
+        shootScript = FindObjectOfType<ShootScript>();
+        bulletTime = shootScript.GetCurrentWeapon().bulletTime;
     }
 
     // Update is called once per frame
@@ -24,7 +26,7 @@ public class BulletPlayer : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if(timer > 10)
+        if(timer > bulletTime)
         {
            Destroy(gameObject);
         }
@@ -53,7 +55,4 @@ public class BulletPlayer : MonoBehaviour
             Instantiate(cashDrop, transform.position,Quaternion.identity);
         }
     }
-
-
 }
-

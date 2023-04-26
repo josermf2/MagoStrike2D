@@ -10,6 +10,12 @@ public class PlayerHealth : MonoBehaviour
     public float maxHealth;
     public Image healthBar;
     public TextMeshProUGUI healthText;
+
+    public float kevlar; 
+    public float maxKevlar;
+    public Image kevlarBar;
+    public TextMeshProUGUI kevlarText;
+
     public Animator animator;
     public GameObject restartMenuUI;
     public int pickupQuantity;
@@ -32,6 +38,7 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         maxHealth = health;
+        maxKevlar = 100;
         healthText.text = maxHealth.ToString();
     }
 
@@ -40,6 +47,9 @@ public class PlayerHealth : MonoBehaviour
     {
         healthBar.fillAmount = Mathf.Clamp(health / maxHealth, 0, 1);
         healthText.text = health.ToString();
+    
+        kevlarBar.fillAmount = Mathf.Clamp(kevlar / maxKevlar, 0, 1);
+        kevlarText.text = kevlar.ToString();
 
         cashText.text = pickupQuantity.ToString();
 
@@ -59,4 +69,6 @@ public class PlayerHealth : MonoBehaviour
             Destroy(other.gameObject);
         }
     }
+
+
 }

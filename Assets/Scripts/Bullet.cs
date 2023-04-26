@@ -38,7 +38,14 @@ public class Bullet : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            other.gameObject.GetComponent<PlayerHealth>().health -= 20;
+            if(other.gameObject.GetComponent<PlayerHealth>().kevlar > 0)
+            {
+                other.gameObject.GetComponent<PlayerHealth>().kevlar -= 20;
+            }
+            else 
+            {
+                other.gameObject.GetComponent<PlayerHealth>().health -= 20;                
+            }
             Destroy(gameObject);
 
         }

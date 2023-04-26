@@ -9,12 +9,12 @@ public class Weapon {
     public Transform shootPoint;
     public float bulletSpeed;
     public float shootDelay;
+    public float bulletTime;
 }
-
 
 public class ShootScript : MonoBehaviour
 {
-    public List<Weapon> weapons;
+    public List<Weapon> weapons;  
     public int currentWeaponIndex = 0;
 
     Vector2 direction;
@@ -116,7 +116,7 @@ public class ShootScript : MonoBehaviour
         GetCurrentWeapon().gun.gameObject.SetActive(false);
     }
 
-    private Weapon GetCurrentWeapon()
+    public Weapon GetCurrentWeapon()
     {
         return weapons[currentWeaponIndex];
     }
