@@ -55,11 +55,11 @@ public class ShootScript : MonoBehaviour
             GetCurrentWeapon().gun.gameObject.SetActive(false);
         }
 
-        if (Input.GetKeyDown(KeyCode.F))
+        /*if (Input.GetKeyDown(KeyCode.F))
         {
             currentWeaponIndex = (currentWeaponIndex + 1) % weapons.Count;
             SetCurrentWeaponActive();
-        }
+        }*/
 
         if (Input.GetMouseButtonDown(0) && canShoot)
         {
@@ -103,7 +103,7 @@ public class ShootScript : MonoBehaviour
         canShoot = true;
     }
 
-    private void SetCurrentWeaponActive()
+    public void SetCurrentWeaponActive()
     {
         for (int i = 0; i < weapons.Count; i++)
         {
@@ -111,7 +111,7 @@ public class ShootScript : MonoBehaviour
         }
     }
 
-    private void SetCurrentWeaponInactive()
+    public void SetCurrentWeaponInactive()
     {
         GetCurrentWeapon().gun.gameObject.SetActive(false);
     }
