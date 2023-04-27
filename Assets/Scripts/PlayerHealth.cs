@@ -21,6 +21,11 @@ public class PlayerHealth : MonoBehaviour
     public int pickupQuantity;
     public TextMeshProUGUI cashText;
 
+    public bool isColliding = false;
+
+    private float damageInterval = 0.5f;
+    private float lastDamageTime = 0f;
+
     [SerializeField]
     private bool _isDead = false;
     public bool IsDead { get
@@ -65,6 +70,17 @@ public class PlayerHealth : MonoBehaviour
             Time.timeScale = 0f;
             restartMenuUI.SetActive(true);
         }
+
+        if (isColliding && !IsInvoking("DamageOverTime"))
+        {
+            InvokeRepeating("DamageOverTime", 0f, damageInterval);
+        }
+        else if (!isColliding && IsInvoking("DamageOverTime"))
+        {
+            CancelInvoke("DamageOverTime");
+        }
+
+        //Debug.Log(isColliding);
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -75,9 +91,30 @@ public class PlayerHealth : MonoBehaviour
             Destroy(other.gameObject);
         }
 
-        if(other.gameObject.CompareTag("Cactus"))
+    }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Cactus")
+        {
+            isColliding = true;
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Cactus")
+        {
+            isColliding = false;
+        }
+    }
+
+    private void DamageOverTime()
+    {
+        if (Time.time - lastDamageTime >= damageInterval)
         {
             health -= 40;
+            lastDamageTime = Time.time;
         }
     }
 

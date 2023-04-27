@@ -6328,6 +6328,7 @@ MonoBehaviour:
   restartMenuUI: {fileID: 1352059636}
   pickupQuantity: 10
   cashText: {fileID: 207001284}
+  isColliding: 0
   _isDead: 0
 --- !u!4 &838237610 stripped
 Transform:
@@ -7281,7 +7282,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 956050650}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.03, y: -1.86, z: -10}
+  m_LocalPosition: {x: 67.9, y: -5.03, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -39104,7 +39105,7 @@ CompositeCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -41852,7 +41853,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1990886942}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.03, y: -1.86, z: -10}
+  m_LocalPosition: {x: 67.9, y: -5.03, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -43062,11 +43063,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 577411354273406566, guid: b05180fcdc5c0c44eb49194b4b618403, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.03
+      value: 67.9
       objectReference: {fileID: 0}
     - target: {fileID: 577411354273406566, guid: b05180fcdc5c0c44eb49194b4b618403, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.86
+      value: -5.03
       objectReference: {fileID: 0}
     - target: {fileID: 577411354273406566, guid: b05180fcdc5c0c44eb49194b4b618403, type: 3}
       propertyPath: m_LocalPosition.z
