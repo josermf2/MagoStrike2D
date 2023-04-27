@@ -74,6 +74,11 @@ public class PlayerHealth : MonoBehaviour
             pickupQuantity += 10;
             Destroy(other.gameObject);
         }
+
+        if(other.gameObject.CompareTag("Cactus"))
+        {
+            health -= 40;
+        }
     }
 
 
