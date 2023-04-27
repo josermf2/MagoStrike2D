@@ -53,8 +53,14 @@ public class PlayerHealth : MonoBehaviour
 
         cashText.text = pickupQuantity.ToString();
 
+        if (kevlar < 0){
+            health += kevlar;
+            kevlar = 0;
+        }
+
         if(health <= 0)
         {
+            health = 0;
             IsDead = true;
             Time.timeScale = 0f;
             restartMenuUI.SetActive(true);

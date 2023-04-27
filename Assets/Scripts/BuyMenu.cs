@@ -39,104 +39,78 @@ public class BuyMenu : MonoBehaviour
     public void BuyKevlar()
     {
 
-        if (playerHealth.pickupQuantity >= 50)
+        if (playerHealth.pickupQuantity >= 0)
         {
-            playerHealth.pickupQuantity -= 50;
-            playerHealth.kevlar += 50;
-            Debug.Log("Kevlar purchased! Money: " + playerHealth.pickupQuantity + " Kevlar: " + playerHealth.kevlar);
-        }
-        else
-        {
-            Debug.Log("Not enough money to buy kevlar!");
+            playerHealth.pickupQuantity -= 0;
+            if (playerHealth.kevlar < 50){
+                playerHealth.pickupQuantity -= 0;
+                playerHealth.kevlar = 50;
+            }
         }
     }
 
     public void BuyKevlarHelmet()
     {
-        if (playerHealth.pickupQuantity >= 80)
+        if (playerHealth.pickupQuantity >= 0)
         {
-            playerHealth.pickupQuantity -= 80;
-            playerHealth.kevlar += 100;
-            Debug.Log("Kevlar and Helmet purchased! Money: " + playerHealth.pickupQuantity + " Kevlar: " + playerHealth.kevlar);
-        }
-        else
-        {
-            Debug.Log("Not enough money to buy kevlar and helmet!");
+            if (playerHealth.kevlar < 100){
+                playerHealth.pickupQuantity -= 0;
+                playerHealth.kevlar = 100;
+            }
         }
     }
 
     public void BuyDeagle()
     {
-        if (playerHealth.pickupQuantity >= 10)
+        if (playerHealth.pickupQuantity >= 0)
         {
-            playerHealth.pickupQuantity -= 10;
+            playerHealth.pickupQuantity -= 0;
             shootScript.currentWeaponIndex = 5;
             shootScript.SetCurrentWeaponActive();
 
-        }
-        else
-        {
-            Debug.Log("Not enough money to buy deagle");
         }
     }
 
     public void BuyAk()
     {
-        if (playerHealth.pickupQuantity >= 10)
+        if (playerHealth.pickupQuantity >= 0)
         {
-            playerHealth.pickupQuantity -= 10;
+            playerHealth.pickupQuantity -= 0;
             shootScript.currentWeaponIndex = 1;
             shootScript.SetCurrentWeaponActive();
 
-        }
-        else
-        {
-            Debug.Log("Not enough money to buy ak");
         }
     }
 
     public void BuyAwp()
     {
-        if (playerHealth.pickupQuantity >= 10)
+        if (playerHealth.pickupQuantity >= 0)
         {
-            playerHealth.pickupQuantity -= 10;
+            playerHealth.pickupQuantity -= 0;
             shootScript.currentWeaponIndex = 4;
             shootScript.SetCurrentWeaponActive();
-
-        }
-        else
-        {
-            Debug.Log("Not enough money to buy ak");
         }
     }
 
     public void BuyMac()
     {
-        if (playerHealth.pickupQuantity >= 10)
+        if (playerHealth.pickupQuantity >= 0)
         {
-            playerHealth.pickupQuantity -= 10;
+            playerHealth.pickupQuantity -= 0;
             shootScript.currentWeaponIndex = 2;
             shootScript.SetCurrentWeaponActive();
 
-        }
-        else
-        {
-            Debug.Log("Not enough money to buy ak");
         }
     }
 
     public void BuyGalil()
     {
-        if (playerHealth.pickupQuantity >= 10)
+        if (playerHealth.pickupQuantity >= 0)
         {
-            playerHealth.pickupQuantity -= 10;
+            playerHealth.pickupQuantity -= 0;
             shootScript.currentWeaponIndex = 3;
             shootScript.SetCurrentWeaponActive();
 
-        }
-        else
-        {
-            Debug.Log("Not enough money to buy ak");
         }
     }
 }
