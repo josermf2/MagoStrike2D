@@ -9,6 +9,7 @@ public class BuyMenu : MonoBehaviour
     public bool buyArea = false;
 
     public GameObject buyMenuUI;
+    public GameObject pauseMenuUI;
     private GameObject player;
     private PlayerHealth playerHealth;
     private ShootScript shootScript;
@@ -23,7 +24,7 @@ public class BuyMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     { 
-        if (Input.GetKeyDown(KeyCode.Z) && buyArea)
+        if (Input.GetKeyDown(KeyCode.Z) && buyArea && !PauseMenu.gameIsPaused)
         {
             if (buyMenu)
             {
