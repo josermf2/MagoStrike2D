@@ -79,8 +79,6 @@ public class PlayerHealth : MonoBehaviour
         {
             CancelInvoke("DamageOverTime");
         }
-
-        //Debug.Log(isColliding);
     }
 
     void OnTriggerEnter2D(Collider2D other)

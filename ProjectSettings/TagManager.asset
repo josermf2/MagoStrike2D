@@ -9,6 +9,7 @@ TagManager:
   - Money
   - Interactive
   - Cactus
+  - BuyArea
   layers:
   - Default
   - TransparentFX

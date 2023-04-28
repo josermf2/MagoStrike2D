@@ -5,6 +5,8 @@ using UnityEngine;
 public class BuyMenu : MonoBehaviour
 {
     public static bool buyMenu = false;
+    
+    public bool buyArea = false;
 
     public GameObject buyMenuUI;
     private GameObject player;
@@ -21,7 +23,7 @@ public class BuyMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     { 
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Z) && buyArea)
         {
             if (buyMenu)
             {
@@ -33,6 +35,11 @@ public class BuyMenu : MonoBehaviour
                 buyMenuUI.SetActive(true);
                 buyMenu = true;
             }
+        } 
+        if (!buyArea) 
+        {
+            buyMenuUI.SetActive(false);
+            buyMenu = false;
         }
     }
 
