@@ -20,7 +20,6 @@ public class PauseMenu : MonoBehaviour
                 Pause();
             }
         }
-        
     }
 
     public void Resume(){
@@ -31,6 +30,7 @@ public class PauseMenu : MonoBehaviour
 
     void Pause(){
         pauseMenuUI.SetActive(true);
+        buyMenuUI.SetActive(false);
         Time.timeScale = 0f;
         gameIsPaused = true;
     }
