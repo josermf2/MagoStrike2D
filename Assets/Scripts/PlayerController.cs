@@ -93,15 +93,6 @@ public class PlayerController : MonoBehaviour
 
         IsMoving = moveInput != Vector2.zero;
 
-        setFacingDirection(moveInput);
-    }
-
-    private void setFacingDirection(Vector2 moveInput) {
-        if (moveInput.x > 0 && !isFacingRight) {
-            isFacingRight = true;
-        } else if (moveInput.x < 0 && isFacingRight) {
-            isFacingRight = false;
-        }
     }
 
     public void OnRun(InputAction.CallbackContext context) {

@@ -55,11 +55,6 @@ public class TouchingDirections : MonoBehaviour
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     void FixedUpdate()
     {
