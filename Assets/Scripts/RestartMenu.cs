@@ -6,12 +6,30 @@ using UnityEngine.SceneManagement;
 public class RestartMenu : MonoBehaviour
 {
     public GameObject restartMenuUI;
+    public GameObject Player;
 
-    public void Restart(){
+    private PlayerController playerScript;
+
+    public void Start () {
+        playerScript = Player.GetComponent<PlayerController>();
+    }
+
+    public void Restart()
+    {
         Time.timeScale = 1f;
         restartMenuUI.SetActive(false); 
-        SceneManager.LoadScene("Dust");
+
+        if (playerScript.respawnPoint != Vector3.zero)
+        {
+            playerScript.Respawn();
+        }
+        else
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
     }
+
 
     public void LoadMenu(){
         Time.timeScale = 1f;

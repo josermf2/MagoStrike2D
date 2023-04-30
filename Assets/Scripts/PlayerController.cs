@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(TouchingDirections))]
 public class PlayerController : MonoBehaviour
@@ -14,6 +15,9 @@ public class PlayerController : MonoBehaviour
     TouchingDirections touchingDirections;
     PlayerHealth playerHealth;
     Camera mainCamera;
+    
+    public Vector3 respawnPoint;
+    public int respawnCash;
 
     public float CurrentMoveSpeed {
         get {
@@ -64,7 +68,20 @@ public class PlayerController : MonoBehaviour
     }
 
     Rigidbody2D rb;
-   
+
+    void Start()
+    {
+        // Get the stored values of the variables from PlayerPrefs
+        if (PlayerPrefs.GetFloat("PlayerPosX") != 0 && PlayerPrefs.GetFloat("PlayerPosY") != 0) {
+            float playerPosX = PlayerPrefs.GetFloat("PlayerPosX");
+            float playerPosY = PlayerPrefs.GetFloat("PlayerPosY");
+            playerHealth.pickupQuantity = PlayerPrefs.GetInt("Cash");
+
+            // Set the values of the variables
+            transform.position = new Vector3(playerPosX, playerPosY, 0);
+            PlayerPrefs.DeleteAll();
+        }
+    }  
 
     private void Awake() {
         rb = GetComponent<Rigidbody2D>();
@@ -84,6 +101,7 @@ public class PlayerController : MonoBehaviour
         } else if (mousePos.x >= transform.position.x && !isFacingRight) {
             isFacingRight = true;
         }
+
     }
 
     public void OnMove(InputAction.CallbackContext context) {
@@ -112,5 +130,25 @@ public class PlayerController : MonoBehaviour
             animator.SetTrigger("jump");
             rb.velocity = new Vector2(rb.velocity.x, jumpInpulse);
         } 
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("RespawnPoints"))
+        {
+            respawnPoint = transform.position;
+            respawnCash = playerHealth.pickupQuantity;
+        }
+    }
+
+    public void Respawn()
+    {
+        // Store the values of the variables in PlayerPrefs
+        PlayerPrefs.SetFloat("PlayerPosX", respawnPoint.x);
+        PlayerPrefs.SetFloat("PlayerPosY", respawnPoint.y);
+        PlayerPrefs.SetInt("Cash", respawnCash);
+
+        // Reload the scene
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

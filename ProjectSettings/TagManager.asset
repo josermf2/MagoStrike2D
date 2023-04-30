@@ -11,6 +11,7 @@ TagManager:
   - Cactus
   - BuyArea
   - Fire
+  - RespawnPoints
   layers:
   - Default
   - TransparentFX
