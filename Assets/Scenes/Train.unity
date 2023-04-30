@@ -3347,6 +3347,7 @@ MonoBehaviour:
   kevlarText: {fileID: 389867070}
   animator: {fileID: 486505257}
   restartMenuUI: {fileID: 1489681853}
+  buyMenuUI: {fileID: 0}
   pickupQuantity: 10
   cashText: {fileID: 1841604822}
   isColliding: 0
@@ -18809,7 +18810,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: 216, y: 5, z: 0}
+  - first: {x: 216, y: 4, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 11
@@ -18971,13 +18972,13 @@ CompositeCollider2D:
   - m_Collider: {fileID: 1888919175}
     m_ColliderPaths:
     - - X: 2175000064
-        Y: 60000000
+        Y: 50000000
       - X: 2155000064
-        Y: 60000000
+        Y: 50000000
       - X: 2155000064
-        Y: 56710524
+        Y: 46710524
       - X: 2175000064
-        Y: 56710524
+        Y: 46710524
     - - X: 1240000000
         Y: 40000000
       - X: 1230000000
@@ -20628,10 +20629,10 @@ CompositeCollider2D:
         Y: -35460528
   m_CompositePaths:
     m_Paths:
-    - - {x: 217.49998, y: 5.6710525}
-      - {x: 217.49998, y: 6}
-      - {x: 215.50002, y: 5.999971}
-      - {x: 215.50003, y: 5.6710525}
+    - - {x: 217.49998, y: 4.6710525}
+      - {x: 217.49998, y: 5}
+      - {x: 215.50002, y: 4.999971}
+      - {x: 215.50003, y: 4.6710525}
     - - {x: 123.99998, y: 1}
       - {x: 123.99998, y: 4}
       - {x: 123, y: 3.999971}
