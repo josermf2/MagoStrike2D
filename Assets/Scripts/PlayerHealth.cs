@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -46,6 +47,10 @@ public class PlayerHealth : MonoBehaviour
         maxHealth = health;
         maxKevlar = 100;
         healthText.text = maxHealth.ToString();
+
+        if (SceneManager.GetActiveScene().buildIndex > 1){
+            pickupQuantity = PlayerPrefs.GetInt("Cash");
+        }
     }
 
     // Update is called once per frame
@@ -91,6 +96,19 @@ public class PlayerHealth : MonoBehaviour
             Destroy(other.gameObject);
         }
 
+        if (other.gameObject.CompareTag("Fire"))
+        {
+            isColliding = true;
+        }        
+
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Fire"))
+        {
+            isColliding = false;
+        }
     }
 
     void OnCollisionEnter2D(Collision2D other)

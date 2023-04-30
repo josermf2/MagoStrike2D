@@ -144,6 +144,7 @@ public class PlayerController : MonoBehaviour
 
         if (other.gameObject.CompareTag("End"))
         {
+            PlayerPrefs.SetInt("Cash", playerHealth.pickupQuantity);
             Time.timeScale = 0f;
             endMenuUI.SetActive(true);
         }
