@@ -111,12 +111,19 @@ TextureImporter:
         x: 0
         y: 0
         width: 304
-        height: 204
+        height: 152
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -152, y: 102}
+        - {x: -152, y: 51}
+        - {x: -152, y: -18}
+        - {x: -138, y: -96}
+        - {x: 122, y: -96}
+        - {x: 152, y: -51}
+        - {x: 152, y: 102}
       tessellationDetail: 0
       bones: []
       spriteID: d7d048ab95017274a8b898e19d8b1c46
@@ -132,16 +139,16 @@ TextureImporter:
         x: 304
         y: 0
         width: 304
-        height: 204
+        height: 152
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 56b4faf2d2bc3754e852080a60c4310e
-      internalID: 1053737580
+      spriteID: 95e6e264bd99c6f4c8746c7b2df18b7c
+      internalID: 752448656
       vertices: []
       indices: 
       edges: []
@@ -153,16 +160,16 @@ TextureImporter:
         x: 608
         y: 0
         width: 304
-        height: 204
+        height: 152
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e20ea90198d40b345940e783504678ab
-      internalID: -1924760693
+      spriteID: 2986c51ccb7012243a1147d10ae3ae9a
+      internalID: 946125945
       vertices: []
       indices: 
       edges: []
@@ -179,8 +186,8 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       TrailFlatbed01_0: -1903206821
-      TrailFlatbed01_1: 1053737580
-      TrailFlatbed01_2: -1924760693
+      TrailFlatbed01_1: 752448656
+      TrailFlatbed01_2: 946125945
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

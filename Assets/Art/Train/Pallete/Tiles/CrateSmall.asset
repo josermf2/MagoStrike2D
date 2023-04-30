@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: TrailFlatbed01_2
+  m_Name: CrateSmall
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 946125945, guid: f2dc739f8b2e3044691ab72848fb20f1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a60e09e4a858b204488708ce0047d41b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
