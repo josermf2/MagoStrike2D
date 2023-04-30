@@ -18,6 +18,7 @@ public class PlayerHealth : MonoBehaviour
 
     public Animator animator;
     public GameObject restartMenuUI;
+    public GameObject buyMenuUI;
     public int pickupQuantity;
     public TextMeshProUGUI cashText;
 
@@ -68,6 +69,7 @@ public class PlayerHealth : MonoBehaviour
             health = 0;
             IsDead = true;
             Time.timeScale = 0f;
+            buyMenuUI.SetActive(false);
             restartMenuUI.SetActive(true);
         }
 

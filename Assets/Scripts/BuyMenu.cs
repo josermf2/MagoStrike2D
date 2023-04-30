@@ -24,7 +24,7 @@ public class BuyMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     { 
-        if (Input.GetKeyDown(KeyCode.Z) && buyArea && !PauseMenu.gameIsPaused)
+        if (Input.GetKeyDown(KeyCode.Z) && buyArea && !PauseMenu.gameIsPaused && !playerHealth.IsDead)
         {
             if (buyMenu)
             {
