@@ -12,6 +12,7 @@ TagManager:
   - BuyArea
   - Fire
   - RespawnPoints
+  - End
   layers:
   - Default
   - TransparentFX

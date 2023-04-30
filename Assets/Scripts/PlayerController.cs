@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
     public Vector3 respawnPoint;
     public int respawnCash;
 
+    public GameObject endMenuUI;
+
     public float CurrentMoveSpeed {
         get {
             if (IsMoving && !touchingDirections.IsOnWall) {
@@ -138,6 +140,12 @@ public class PlayerController : MonoBehaviour
         {
             respawnPoint = transform.position;
             respawnCash = playerHealth.pickupQuantity;
+        }
+
+        if (other.gameObject.CompareTag("End"))
+        {
+            Time.timeScale = 0f;
+            endMenuUI.SetActive(true);
         }
     }
 
