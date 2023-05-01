@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5087683307341806554}
   - component: {fileID: 5087683307341806553}
   - component: {fileID: 5087683307341806559}
+  - component: {fileID: 2431882431236250350}
   m_Layer: 0
   m_Name: "Interag\xEDveis"
   m_TagString: Interactive
@@ -156,3 +157,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.01, y: 0.99}
   m_EdgeRadius: 0
+--- !u!114 &2431882431236250350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5087683307341806552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6927644ab22e0ab49b466a19c2a4e1b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Destroyed:
+    m_PersistentCalls:
+      m_Calls: []

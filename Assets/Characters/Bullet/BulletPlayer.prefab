@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6699139836470539707}
   m_Layer: 0
   m_Name: BulletPlayer
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -159,7 +159,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 996775c0f0eabeb4ca453b6b9254a6bb, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 3f2aace070de321438ff08148b0621f1, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
