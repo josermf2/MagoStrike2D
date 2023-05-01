@@ -10,6 +10,7 @@ public class Weapon {
     public float bulletSpeed;
     public float shootDelay;
     public float bulletTime;
+    public AudioSource sound;
 }
 
 public class ShootScript : MonoBehaviour
@@ -22,7 +23,7 @@ public class ShootScript : MonoBehaviour
     public GameObject Bullet;
 
     private TouchingDirections groundCheck;
-    private bool canShoot = true;
+    public bool canShoot = true;
 
 
     private void Start()
@@ -50,16 +51,11 @@ public class ShootScript : MonoBehaviour
         {
             GetCurrentWeapon().gun.gameObject.SetActive(true);
         }
+
         else
         {
             GetCurrentWeapon().gun.gameObject.SetActive(false);
         }
-
-        /*if (Input.GetKeyDown(KeyCode.F))
-        {
-            currentWeaponIndex = (currentWeaponIndex + 1) % weapons.Count;
-            SetCurrentWeaponActive();
-        }*/
 
         if (Input.GetMouseButtonDown(0) && canShoot)
         {
@@ -82,6 +78,9 @@ public class ShootScript : MonoBehaviour
         if (!GetCurrentWeapon().gun.gameObject.activeSelf) {
             yield break; // Player cannot shoot when not on the ground
         }
+
+        GetCurrentWeapon().sound.Play();
+
         canShoot = false;
 
         GameObject bulletIns = Instantiate(Bullet, GetCurrentWeapon().shootPoint.position, GetCurrentWeapon().shootPoint.rotation);
@@ -101,6 +100,7 @@ public class ShootScript : MonoBehaviour
         yield return new WaitForSeconds(GetCurrentWeapon().shootDelay);
 
         canShoot = true;
+
     }
 
     public void SetCurrentWeaponActive()

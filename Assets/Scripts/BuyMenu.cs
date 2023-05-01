@@ -30,9 +30,11 @@ public class BuyMenu : MonoBehaviour
             {
                 buyMenuUI.SetActive(false);
                 buyMenu = false; 
+                shootScript.canShoot = true;
             }
             else
             {
+                shootScript.canShoot = false;
                 buyMenuUI.SetActive(true);
                 buyMenu = true;
             }
