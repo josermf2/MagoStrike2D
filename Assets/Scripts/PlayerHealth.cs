@@ -48,7 +48,7 @@ public class PlayerHealth : MonoBehaviour
         maxKevlar = 100;
         healthText.text = maxHealth.ToString();
 
-        if (SceneManager.GetActiveScene().buildIndex > 1){
+        if (SceneManager.GetActiveScene().buildIndex > 2){
             pickupQuantity = PlayerPrefs.GetInt("Cash");
         }
     }
