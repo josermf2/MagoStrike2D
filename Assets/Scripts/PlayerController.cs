@@ -21,6 +21,9 @@ public class PlayerController : MonoBehaviour
 
     public GameObject endMenuUI;
 
+    public AudioSource endSound;
+    public AudioSource jumpSound;
+
     public float CurrentMoveSpeed {
         get {
             if (IsMoving && !touchingDirections.IsOnWall) {
@@ -129,6 +132,7 @@ public class PlayerController : MonoBehaviour
         if (playerHealth.IsDead) return;
 
         if (context.started && touchingDirections.IsGrounded) {
+            jumpSound.Play();
             animator.SetTrigger("jump");
             rb.velocity = new Vector2(rb.velocity.x, jumpInpulse);
         } 
@@ -146,6 +150,7 @@ public class PlayerController : MonoBehaviour
         {
             PlayerPrefs.SetInt("Cash", playerHealth.pickupQuantity);
             Time.timeScale = 0f;
+            endSound.Play();
             endMenuUI.SetActive(true);
         }
     }

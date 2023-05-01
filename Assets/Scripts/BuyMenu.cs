@@ -14,6 +14,8 @@ public class BuyMenu : MonoBehaviour
     private PlayerHealth playerHealth;
     private ShootScript shootScript;
 
+    public AudioSource buySound;
+
     void Start()
     { 
         player = GameObject.Find("Player");
@@ -55,6 +57,7 @@ public class BuyMenu : MonoBehaviour
             if (playerHealth.kevlar < 50){
                 playerHealth.pickupQuantity -= 0;
                 playerHealth.kevlar = 50;
+                buySound.Play();
             }
         }
     }
@@ -66,6 +69,7 @@ public class BuyMenu : MonoBehaviour
             if (playerHealth.kevlar < 100){
                 playerHealth.pickupQuantity -= 0;
                 playerHealth.kevlar = 100;
+                buySound.Play();
             }
         }
     }
@@ -77,7 +81,7 @@ public class BuyMenu : MonoBehaviour
             playerHealth.pickupQuantity -= 0;
             shootScript.currentWeaponIndex = 5;
             shootScript.SetCurrentWeaponActive();
-
+            buySound.Play();
         }
     }
 
@@ -88,7 +92,7 @@ public class BuyMenu : MonoBehaviour
             playerHealth.pickupQuantity -= 0;
             shootScript.currentWeaponIndex = 1;
             shootScript.SetCurrentWeaponActive();
-
+            buySound.Play();
         }
     }
 
@@ -99,6 +103,7 @@ public class BuyMenu : MonoBehaviour
             playerHealth.pickupQuantity -= 0;
             shootScript.currentWeaponIndex = 4;
             shootScript.SetCurrentWeaponActive();
+            buySound.Play();
         }
     }
 
@@ -109,7 +114,7 @@ public class BuyMenu : MonoBehaviour
             playerHealth.pickupQuantity -= 0;
             shootScript.currentWeaponIndex = 2;
             shootScript.SetCurrentWeaponActive();
-
+            buySound.Play();
         }
     }
 
@@ -120,7 +125,7 @@ public class BuyMenu : MonoBehaviour
             playerHealth.pickupQuantity -= 0;
             shootScript.currentWeaponIndex = 3;
             shootScript.SetCurrentWeaponActive();
-
+            buySound.Play();
         }
     }
 }

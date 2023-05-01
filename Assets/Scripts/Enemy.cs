@@ -9,6 +9,9 @@ public class Enemy : MonoBehaviour
 
     private float timer;
     private GameObject player;
+    
+    public AudioSource sound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,5 +38,6 @@ public class Enemy : MonoBehaviour
     void shoot()
     {
         Instantiate(bullet, bulletPos.position, Quaternion.identity);
+        sound.Play();
     }
 }

@@ -9,6 +9,8 @@ public class Bullet : MonoBehaviour
     public float force;
     private float timer;
 
+    public AudioSource hitSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +40,8 @@ public class Bullet : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
         {
+            hitSound.Play();
+            
             if(other.gameObject.GetComponent<PlayerHealth>().kevlar > 0)
             {
                 other.gameObject.GetComponent<PlayerHealth>().kevlar -= 20;

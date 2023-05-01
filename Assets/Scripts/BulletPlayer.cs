@@ -12,6 +12,9 @@ public class BulletPlayer : MonoBehaviour
     private ShootScript shootScript;
     private float bulletTime;
 
+    public AudioSource blockSound;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,9 +53,11 @@ public class BulletPlayer : MonoBehaviour
 
         if(other.gameObject.CompareTag("Interactive"))
         {
+            blockSound.Play();
             Destroy(gameObject);
             Destroy(other.gameObject);
             Instantiate(cashDrop, transform.position,Quaternion.identity);
+
         }
     }
 }

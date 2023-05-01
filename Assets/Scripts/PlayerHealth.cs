@@ -28,6 +28,12 @@ public class PlayerHealth : MonoBehaviour
     private float damageInterval = 0.5f;
     private float lastDamageTime = 0f;
 
+    public AudioSource dieSound;
+    public AudioSource fireCactusSound;
+    public AudioSource MoneySound;
+
+    private bool playedDieSound = false;
+
     [SerializeField]
     private bool _isDead = false;
     public bool IsDead { get
@@ -69,7 +75,12 @@ public class PlayerHealth : MonoBehaviour
             kevlar = 0;
         }
 
-        if(health <= 0)
+        if (health <= 0 && !playedDieSound){
+            dieSound.Play();
+            playedDieSound = true;
+        }
+
+        if(health <= 0 && playedDieSound)
         {
             health = 0;
             IsDead = true;
@@ -93,6 +104,7 @@ public class PlayerHealth : MonoBehaviour
         if(other.gameObject.CompareTag("Money"))
         {
             pickupQuantity += 10;
+            MoneySound.Play();
             Destroy(other.gameObject);
         }
 
@@ -133,6 +145,7 @@ public class PlayerHealth : MonoBehaviour
         {
             health -= 40;
             lastDamageTime = Time.time;
+            fireCactusSound.Play();
         }
     }
 
