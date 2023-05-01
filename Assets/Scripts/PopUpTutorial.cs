@@ -15,8 +15,15 @@ public class PopUpTutorial : MonoBehaviour
     public GameObject popUpBlock;
     public GameObject popUpEnemy;
 
+    void Start(){
 
-    void onTriggerEnter2D(Collider2D other)
+    }
+
+    void Update(){
+
+    }
+    
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("PopUpArea"))
         {
