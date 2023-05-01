@@ -56,6 +56,8 @@ public class PlayerHealth : MonoBehaviour
 
         if (SceneManager.GetActiveScene().buildIndex > 2){
             pickupQuantity = PlayerPrefs.GetInt("Cash");
+
+            PlayerPrefs.DeleteAll();
         }
     }
 
