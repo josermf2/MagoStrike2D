@@ -51,11 +51,10 @@ public class BuyMenu : MonoBehaviour
     public void BuyKevlar()
     {
 
-        if (playerHealth.pickupQuantity >= 0)
+        if (playerHealth.pickupQuantity >= 80)
         {
-            playerHealth.pickupQuantity -= 0;
             if (playerHealth.kevlar < 50){
-                playerHealth.pickupQuantity -= 0;
+                playerHealth.pickupQuantity -= 80;
                 playerHealth.kevlar = 50;
                 buySound.Play();
             }
@@ -64,10 +63,10 @@ public class BuyMenu : MonoBehaviour
 
     public void BuyKevlarHelmet()
     {
-        if (playerHealth.pickupQuantity >= 0)
+        if (playerHealth.pickupQuantity >= 200)
         {
             if (playerHealth.kevlar < 100){
-                playerHealth.pickupQuantity -= 0;
+                playerHealth.pickupQuantity -= 200;
                 playerHealth.kevlar = 100;
                 buySound.Play();
             }
@@ -76,9 +75,9 @@ public class BuyMenu : MonoBehaviour
 
     public void BuyDeagle()
     {
-        if (playerHealth.pickupQuantity >= 0)
+        if (playerHealth.pickupQuantity >= 100)
         {
-            playerHealth.pickupQuantity -= 0;
+            playerHealth.pickupQuantity -= 100;
             shootScript.currentWeaponIndex = 5;
             shootScript.SetCurrentWeaponActive();
             buySound.Play();
@@ -87,9 +86,9 @@ public class BuyMenu : MonoBehaviour
 
     public void BuyAk()
     {
-        if (playerHealth.pickupQuantity >= 0)
+        if (playerHealth.pickupQuantity >= 460)
         {
-            playerHealth.pickupQuantity -= 0;
+            playerHealth.pickupQuantity -= 460;
             shootScript.currentWeaponIndex = 1;
             shootScript.SetCurrentWeaponActive();
             buySound.Play();
@@ -98,9 +97,9 @@ public class BuyMenu : MonoBehaviour
 
     public void BuyAwp()
     {
-        if (playerHealth.pickupQuantity >= 0)
+        if (playerHealth.pickupQuantity >= 660)
         {
-            playerHealth.pickupQuantity -= 0;
+            playerHealth.pickupQuantity -= 660;
             shootScript.currentWeaponIndex = 4;
             shootScript.SetCurrentWeaponActive();
             buySound.Play();
@@ -109,9 +108,9 @@ public class BuyMenu : MonoBehaviour
 
     public void BuyMac()
     {
-        if (playerHealth.pickupQuantity >= 0)
+        if (playerHealth.pickupQuantity >= 220)
         {
-            playerHealth.pickupQuantity -= 0;
+            playerHealth.pickupQuantity -= 220;
             shootScript.currentWeaponIndex = 2;
             shootScript.SetCurrentWeaponActive();
             buySound.Play();
@@ -120,9 +119,9 @@ public class BuyMenu : MonoBehaviour
 
     public void BuyGalil()
     {
-        if (playerHealth.pickupQuantity >= 0)
+        if (playerHealth.pickupQuantity >= 260)
         {
-            playerHealth.pickupQuantity -= 0;
+            playerHealth.pickupQuantity -= 260;
             shootScript.currentWeaponIndex = 3;
             shootScript.SetCurrentWeaponActive();
             buySound.Play();

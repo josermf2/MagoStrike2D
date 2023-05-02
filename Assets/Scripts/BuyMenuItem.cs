@@ -19,6 +19,8 @@ public class BuyMenuItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     private Transform popUpInfoTransform;
     private GameObject popUpInfo;
 
+    public GameObject buyMenuUI;
+
     private void Start()
     {
         image = GetComponent<Image>();
@@ -32,6 +34,19 @@ public class BuyMenuItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         popUpInfoTransform = transform.Find("popUpInfo");
         popUpInfo = popUpInfoTransform.gameObject;
 
+    }
+
+    private void Update()
+    {
+        if (!buyMenuUI.activeSelf){
+            if (popUpNoMoney.activeSelf){
+                popUpNoMoney.SetActive(false);
+            }
+
+            if (popUpInfo.activeSelf){
+                popUpInfo.SetActive(false);
+            }
+        }
     }
 
     public void OnPointerEnter(PointerEventData eventData)

@@ -864,42 +864,42 @@ MonoBehaviour:
     shootPoint: {fileID: 0}
     bulletSpeed: 600
     shootDelay: 1
-    bulletTime: 9
+    bulletTime: 0.8
     sound: {fileID: 4916235977573163310}
   - name: ak
     gun: {fileID: 0}
     shootPoint: {fileID: 0}
     bulletSpeed: 800
     shootDelay: 0.75
-    bulletTime: 10
+    bulletTime: 1.5
     sound: {fileID: 888833142450713099}
   - name: mac10
     gun: {fileID: 0}
     shootPoint: {fileID: 0}
     bulletSpeed: 750
     shootDelay: 0.2
-    bulletTime: 0.4
+    bulletTime: 0.65
     sound: {fileID: 52929229686461129}
   - name: galil
     gun: {fileID: 0}
     shootPoint: {fileID: 0}
     bulletSpeed: 800
     shootDelay: 0.9
-    bulletTime: 8
+    bulletTime: 1.1
     sound: {fileID: 678437131672817326}
   - name: awp
     gun: {fileID: 0}
     shootPoint: {fileID: 0}
-    bulletSpeed: 900
+    bulletSpeed: 1200
     shootDelay: 1.5
-    bulletTime: 15
+    bulletTime: 2
     sound: {fileID: 5427001796627313302}
   - name: deagle
     gun: {fileID: 0}
     shootPoint: {fileID: 0}
     bulletSpeed: 650
     shootDelay: 0.75
-    bulletTime: 8
+    bulletTime: 1
     sound: {fileID: 6331189087992571276}
   currentWeaponIndex: 0
   Bullet: {fileID: 6045191161375106362, guid: cde05f6fe121ddf4782dc658db877405, type: 3}
