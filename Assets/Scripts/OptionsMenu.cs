@@ -8,6 +8,7 @@ public class OptionsMenu : MonoBehaviour
     public AudioMixer audioMixer;
     public GameObject pauseMenuUI;
 
+
     void Update(){
         if (gameObject.activeSelf == true){
             pauseMenuUI.SetActive(false);
