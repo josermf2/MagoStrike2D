@@ -238,7 +238,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 1961664406}
           m_TargetAssemblyTypeName: BuyMenu, Assembly-CSharp
           m_MethodName: BuyMac
           m_Mode: 1
@@ -4004,7 +4004,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 1961664406}
           m_TargetAssemblyTypeName: BuyMenu, Assembly-CSharp
           m_MethodName: BuyKevlarHelmet
           m_Mode: 1
@@ -7899,7 +7899,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 1961664406}
           m_TargetAssemblyTypeName: BuyMenu, Assembly-CSharp
           m_MethodName: BuyDeagle
           m_Mode: 1
@@ -14840,7 +14840,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 1961664406}
           m_TargetAssemblyTypeName: BuyMenu, Assembly-CSharp
           m_MethodName: BuyKevlar
           m_Mode: 1
@@ -21363,7 +21363,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 1961664406}
           m_TargetAssemblyTypeName: BuyMenu, Assembly-CSharp
           m_MethodName: BuyAwp
           m_Mode: 1
@@ -23402,7 +23402,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 1961664406}
           m_TargetAssemblyTypeName: BuyMenu, Assembly-CSharp
           m_MethodName: BuyGalil
           m_Mode: 1
@@ -48363,7 +48363,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 1961664406}
           m_TargetAssemblyTypeName: BuyMenu, Assembly-CSharp
           m_MethodName: BuyAk
           m_Mode: 1
